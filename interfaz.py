@@ -117,7 +117,6 @@ class interfaz():
         #inicia la ventana de conteo de creditos
         self.contar.mainloop()
         
-
         #Cierra el menu y agre la ventana de cargar de archivo
     def ir_carga_archivo(self):
         self.menu.destroy()
@@ -138,11 +137,9 @@ class interfaz():
     def cargar_archivo(self,ruta):
         try:
             leer(ruta)
-            #print("El Archivo Si Existe")
             showinfo(title="Mensaje",message="Archivo Cargado Correctamente")
             self.regresar_menu()
         except FileNotFoundError:
-            #print("El Archivo No Existe")
             showerror(title="Error",message="El Archivo NO Existe")
 
     #Ventana Para cargar el archivo
@@ -306,7 +303,6 @@ class interfaz():
         else:
             showwarning(title="Advertencia",message="Ingrese un Codigo")
 
-
         #Ventana para editar curso
     def editar_curso(self):
         #conf venta
@@ -356,7 +352,6 @@ class interfaz():
         #iniciar ventana editar curso
         self.editar.mainloop()
 
-
         #Cierra gestion de curso y abre agregar curso
     def ir_agregar_curso(self):
         self.gestion.destroy()
@@ -370,10 +365,6 @@ class interfaz():
         #Agregar curso a la lista de cursos y verifica que no se repita
     def insertar_curso(self):
         curso=[self.Ecodigo.get(),self.Enombre.get(),self.Eprerequisito.get(),self.Eobligatorio.get(),self.Esemestre.get(),self.Ecreditos.get(),self.Eestado.get()]
-        #for dato in curso:
-            #if dato=="":
-                #showwarning(title="Advertencia",message="Rellene Todos los Campos")
-                #return None
         if curso[0]=="":
             showwarning(title="Advertencia",message="Ingrese Un Codigo Como Minimo")
             return None
@@ -495,7 +486,6 @@ class interfaz():
         #Inicia la venta para mostrar curso
         self.mostrar.mainloop()
 
-
         #Cerrar gestion y abrir listado de cursos
     def ir_listar_cursos(self):
         self.gestion.destroy()
@@ -506,7 +496,8 @@ class interfaz():
         self.listar.destroy()
         self.gestion_cursos()
 
-    def listar_cursos(self):
+        #Venta Listar Curso
+    def listar_cursos(self):    
         #conf ventana
         self.listar = Tk()
         self.listar.resizable(False,False)
